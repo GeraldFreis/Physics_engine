@@ -31,6 +31,7 @@ class Game():
         pressed_keys = py.key.get_pressed()
         
         running_test = True
+        dropped = False
 
         shape = Shape()
         simulation = Physics_Simulations()
@@ -38,8 +39,12 @@ class Game():
         while(running_test is True):
             management.user_input()
             running_test = management.get_run_test()
-            # simulation.drop_square(shape.get_shape_array())
-            # shape.set_shape_array(simulation.get_shape_array())
+            
+            if(shape.get_drop() is False):
+                simulation.drop_square(shape.get_shape_array())
+                shape.set_shape_array(simulation.get_shape_array())
+                shape.set_drop(True)
+
             shape.make_shape_array_square()
             shape.draw_shape(window)
             

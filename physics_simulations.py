@@ -1,4 +1,5 @@
 import pygame as py
+from particle import Particle # the individual particles on screen 
 
 class Physics_Simulations():
     __window = None
