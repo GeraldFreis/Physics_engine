@@ -37,9 +37,10 @@ class Game():
         simulation = Physics_Simulations()
 
         while(running_test is True):
+            window.fill((0, 0, 0))  # Clear the screen.
             management.user_input()
             running_test = management.get_run_test()
-            
+
             if(shape.get_drop() is False):
                 simulation.drop_square(shape.get_shape_array())
                 shape.set_shape_array(simulation.get_shape_array())
