@@ -5,6 +5,7 @@ Class to calculate the particle movements, given the current particle and the la
 has attrs:
     current particle and under particle but both are private:
         -> can be set with the set particles function, given the particles as formal parameters
+has methods:
 
 """
 class Particle_Movement():
@@ -16,10 +17,12 @@ class Particle_Movement():
         self.__current_particle = this_particle
         self.__under_particle = last_particle
     
+    # setting the particles to be moved
     def set_particles(self, this_particle: Particle, last_particle: Particle):
         self.__current_particle = this_particle
         self.__under_particle = last_particle
     
+    # returning the particles (self and current as a tuple)
     def get_particles(self)->tuple:
         return self.__current_particle, self.__under_particle
     
