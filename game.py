@@ -44,13 +44,13 @@ class Game():
 
             if(shape.get_drop() is False):
                 window.fill((0, 0, 0))
-                py.display.update()
                 simulation.drop_square(shape.get_shape_array())
                 shape.set_shape_array(simulation.get_shape_array())
                 shape.set_drop(True)
-
-            shape.make_shape_array_square()
-            shape.draw_shape(window)
+                shape.draw_shape(window)
+            else:
+                shape.make_shape_array_square()
+                shape.draw_shape(window)
             
             py.display.update()
     
