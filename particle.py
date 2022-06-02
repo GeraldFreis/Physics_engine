@@ -1,6 +1,6 @@
 import pygame as py
 
-
+"""Class to handle the particles on the screen"""
 class Particle():
     __radius = None
     __x = None
