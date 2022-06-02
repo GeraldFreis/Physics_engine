@@ -6,7 +6,9 @@ has attrs:
     current particle and under particle but both are private:
         -> can be set with the set particles function, given the particles as formal parameters
 has methods:
-
+    set_particles
+    get_particles
+    calc_positions
 """
 class Particle_Movement():
     # the private attrs
@@ -23,8 +25,8 @@ class Particle_Movement():
         self.__under_particle = last_particle
     
     # returning the particles (self and current as a tuple)
-    def get_particles(self)->tuple:
-        return self.__current_particle, self.__under_particle
+    def get_particles(self)->Particle:
+        return self.__current_particle
     
     # calculate the positions of the particles based on the movement and direction of the previous particle
     def calc_positions(self):
