@@ -22,11 +22,11 @@ class Physics_Simulations():
         # dropping a square from the current position
         self.__object_array = object_array
         # checking if the lowest particle is at the bottom of the screen
-        if(self.__object_array[0].get_points()[1] < 480):
+        if(self.__object_array[0].get_points()[1] < 450):
             # moving the shape downwards
             for i in range(0, len(self.__object_array)):
                 pos = tuple(self.__object_array[i].get_points())
-                self.__object_array[i].move_particle(pos[0], pos[1]+17)
+                self.__object_array[i].move_particle(pos[0], pos[1]+4)
             
 
     def get_shape_array(self)->list:
