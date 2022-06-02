@@ -32,3 +32,14 @@ class Particle_Movement():
     def calc_positions(self):
         # how do I want to do this?
         print("here")
+
+
+"""Planning the positions calculator
+What formulas to use:
+-> As the first ball hits the ground there is a net loss and transfer of momentum in the negative direction (i.e transfer of momentum backwards / upwards)
+In doing so the ball above it must also transfer its momentum, however, this collision is again not in an isolated environment so not all of the energy
+-> (Ke) will be conserved. Likewise, this will again happen to the one above.
+---> This will continue upwards, however, this is not the concern, but the concern is that the last ball (that transfers its energy) will actually rebound
+--> If the balls are dead on it will rebound straight down. But, if the particles represent a material they can never truly be vertically aligned (well they can)
+--> (They just have to represent a laticed material or hydrocarbon chain)
+"""
