@@ -5,15 +5,18 @@ class Particle():
     __radius = None
     __x = None
     __y = None
+    __momentum = None
 
     # constructors
     def __init__(self):
         self.__radius = 0
+        self.__momentum = tuple()
     
     def __init__(self, radius: int, x: int, y: int):
         self.__radius = radius
         self.__x = x
         self.__y = y
+        self.__momentum = tuple() # direction 
 
     # methods
     def move_particle(self, new_x: int, new_y: int): # moves the current particle

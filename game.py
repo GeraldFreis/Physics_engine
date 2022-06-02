@@ -4,7 +4,8 @@ from game_manager import Game_manager
 from shapes import Shape
 from physics_simulations import Physics_Simulations
 
-"""Class to control the game
+"""
+Class to control the game
     attrs:
         __window_size,
         __background_colour,
