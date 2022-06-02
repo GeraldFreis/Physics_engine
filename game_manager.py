@@ -1,6 +1,16 @@
 import pygame as py
 
+"""
+Class to manage the game (specifically inputs):
+    has private attrs:
+        __run_test (bool to check whether or not to end the game)
+        __drop_sim (bool to check if the user has pressed 1 (and if so we can begin dropping the square))
+    
+    has public functions:
+        user_input() # checks what the user has entered (i.e to end (has clicked quit))
 
+        get run_tests, get drop_tests # returns the private variables in each of the functions
+"""
 class Game_manager:
     __run_test = None
     __drop_sim = None
