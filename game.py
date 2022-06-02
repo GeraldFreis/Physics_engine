@@ -40,6 +40,7 @@ class Game():
             window.fill((0, 0, 0))  # Clear the screen.
             management.user_input()
             running_test = management.get_run_test()
+            shape.set_drop(management.get_drop_test())
 
             if(shape.get_drop() is False):
                 simulation.drop_square(shape.get_shape_array())
