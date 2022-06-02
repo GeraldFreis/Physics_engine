@@ -43,6 +43,7 @@ class Game():
             shape.set_drop(management.get_drop_test())
 
             if(shape.get_drop() is False):
+                window.fill((0, 0, 0))
                 simulation.drop_square(shape.get_shape_array())
                 shape.set_shape_array(simulation.get_shape_array())
                 shape.set_drop(True)
