@@ -35,7 +35,7 @@ class Shape():
     
     def get_drop(self)->bool: return self.__drop_begun
 
-    def set_drop(self, drop_state: bool): self.__drop_begun = drop_state;
+    def set_drop(self, drop_state: bool): self.__drop_begun = drop_state
 
     def set_shape_array(self, shape_array: list): self.__shape_array = shape_array
 
