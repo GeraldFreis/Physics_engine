@@ -33,15 +33,15 @@ class Particle_Movement():
     # calculate the positions of the particles based on the movement and direction of the previous particle
     def calc_positions(self):
         # getting the x positions of the current particle and the particle above
-        current_x = self.__current_particle.get_points()[0]; last_x = self.__current_particle.get_points()[0]
+        current_x = self.__current_particle.get_points()[0]; last_x = self.__under_particle.get_points()[0]
         if(self.__reverse_flux is not True): # if we are moving each particle inward
             if(current_x < 300): # if the particle is not past the central point (where flux is at max (or g'(t) = 0 && f'(t) != 0){if treated as parametric})
-                current_x += 5
+                current_x = last_x +  5
             else: # if we are past the central x position we must reverse
                 self.__reverse_flux = True # reversing the direction
         else: # if we need to move the items backwards
             if(current_x > 250): # if we are greater than the minimal x position
-                current_x -= 5
+                current_x = last_x - 5
             else:
                 self.__reverse_flux = False
 
