@@ -14,10 +14,12 @@ class Particle_Movement():
     # the private attrs
     __current_particle = None
     __under_particle = None
+    __reverse_flux = None
 
     def __init__(self, this_particle: Particle, last_particle: Particle):
         self.__current_particle = this_particle
         self.__under_particle = last_particle
+        self.__reverse_flux = False
     
     # setting the particles to be moved
     def set_particles(self, this_particle: Particle, last_particle: Particle):
@@ -30,7 +32,15 @@ class Particle_Movement():
     
     # calculate the positions of the particles based on the movement and direction of the previous particle
     def calc_positions(self):
-        # how do I want to do this?
+        # checking what the last x and y positions were, and if they had a greater flux than 20
+        # flux will be a measure of element [0] to the current element:
+        # the position of the current element will be given by previous_element (x,y) + (5, 0) {if element is on left} and (x,y) - (5, 0) {if element is on right}
+        # lowest position should be constant x = 250
+        current_x = self.__current_particle.get_points()[0]; last_x = self.__current_particle.get_points()[1]
+        if(current_x < 300):
+            current_x += 5
+        else:
+            self.__reverse_flux = True
         print("here")
 
 
