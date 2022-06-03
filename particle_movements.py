@@ -43,3 +43,11 @@ In doing so the ball above it must also transfer its momentum, however, this col
 --> If the balls are dead on it will rebound straight down. But, if the particles represent a material they can never truly be vertically aligned (well they can)
 --> (They just have to represent a laticed material or hydrocarbon chain)
 """
+
+"""
+Drop stages:
+-> box drops
+-> hits floor and bounces upwards at 1/2 height
+    -> when hit floor box condenses and sides slightly cave, dependent on material flex:
+        -> biggest cave in centre of side (side, len / 2 {element at this point})
+"""
