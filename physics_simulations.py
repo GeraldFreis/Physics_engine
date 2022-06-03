@@ -19,18 +19,19 @@ class Physics_Simulations():
         self.__window = window
         self.__simulation_type = simulation_type
 
-    # method for dropping a square
+    # method for handling the dropping of a square (inclusive of horizontal displacement)
     def drop_square(self, object_array: list):
         # dropping a square from the current position
         self.__object_array = object_array
 
         # checking if the lowest particle is at the bottom of the screen
         if(self.__object_array[0].get_points()[1] < 450):
-            
+
             # moving the shape downwards
             for i in range(0, len(self.__object_array)):
                 pos = tuple(self.__object_array[i].get_points())
                 self.__object_array[i].move_particle(pos[0], pos[1]+4)
+
             
 
     def get_shape_array(self)->list:
