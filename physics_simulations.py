@@ -56,6 +56,13 @@ class Physics_Simulations():
         else:
             self.__drop_stage += 1
             self.__momentum = 4
+            if(self.__object_array[0].get_points()[1] > 350 and self.__drop_stage == 2):
+                x = 0
+                for i in range(0, len(self.__object_array)):
+                    pos = tuple(self.__object_array[i].get_points())
+                    self.__object_array[i].move_particle(pos[0], pos[1]-self.__momentum*3/4)
+                else:
+                    self.__drop_stage += 1
 
         
 
