@@ -47,7 +47,7 @@ class Physics_Simulations():
         self.__object_array = object_array
 
         # checking if the lowest particle is at the bottom of the screen
-        if(self.__object_array[0].get_points()[1] < 450 and self.__drop_stage == 0):
+        if(self.__object_array[0].get_points()[1] < 450 and self.__drop_stage % 2 == 0):
             x = -1.265
             # moving the shape downwards
             for i in range(0, len(self.__object_array)):
@@ -63,8 +63,9 @@ class Physics_Simulations():
                 for i in range(0, len(self.__object_array)):
                     pos = tuple(self.__object_array[i].get_points())
                     self.__object_array[i].move_particle(pos[0], pos[1]-self.__momentum*3/4)
-            # else:
-        #     self.__drop_stage += 1
+            else:
+                self.__drop_stage += 1
+                self.__momentum = self.__momentum * 3 / 4
 
         
 
