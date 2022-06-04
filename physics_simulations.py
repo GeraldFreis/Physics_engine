@@ -32,7 +32,9 @@ class Physics_Simulations():
                 pos = tuple(self.__object_array[i].get_points())
                 self.__object_array[i].move_particle(pos[0], pos[1]+4)
 
-            
+    def square_rebound(self, object_array: list)->None:
+        self.__object_array = object_array
+        
 
     def get_shape_array(self)->list:
         return self.__object_array

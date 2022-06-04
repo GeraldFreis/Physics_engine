@@ -44,7 +44,7 @@ class Particle_Movement():
                 self.__reverse_flux = True # reversing the direction
 
         else: # if we need to move the items backwards
-            if(current_x > 250): # if we are greater than the minimal x position
+            if(current_x > 350): # if we are greater than the minimal x position
                 current_x = last_x - 5
 
             else:
@@ -53,4 +53,5 @@ class Particle_Movement():
         # updating the current particles position
         self.__current_particle.move_particle(current_x, self.__current_particle.get_points()[1]);
 
-    def get_flux()->bool: return self.__reverse_flux
+    def get_flux(self)->bool: return self.__reverse_flux
+    def set_flux(self, _flux: bool)->None: self.__reverse_flux = _flux;

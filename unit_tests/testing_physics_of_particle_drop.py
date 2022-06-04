@@ -92,20 +92,52 @@ def testing_horizontal_displacement_realistic():
 			print(particle_list[i].get_points()[0], particle_list[i-1].get_points()[0])
 			print("\n")
 
+	particle_mover.set_flux(True)
 	# moving all vals on the right side of the square
-	for i in range(21, 30):
+	for i in range(21, 31):
 		particle_mover.set_particles(particle_list[i], particle_list[i-1])
 		particle_mover.calc_positions()
 		particle_list[i] = particle_mover.get_particle()
 
-	for i in range(21, 30):
+	for i in range(21, 31): # iterating over the remaining particles in the list (those on the right side of the square)
 		if(particle_list[i].get_points()[0] != (particle_list[i-1].get_points()[0]-5)):
-			print("Test "+ str(i + 1) + " failed\n")
+			print("Test "+ str(i-1) + " failed\n")
+			print(particle_list[i].get_points()[0], particle_list[i-1].get_points()[0])
+			print("\n")
+
 		else:
-			print("Test "+ str(i + 1) +" passed")
+			print("Test "+ str(i-1) +" passed")
+			print(particle_list[i].get_points()[0], particle_list[i-1].get_points()[0])
+			print("\n")
+
+def testing_square_creation():
+	"""Setting up the particles as they are in the game"""
+	# this includes getting only the side particles to flex
+
+	shapes_arr = Draw_shapes_2D()
+	shapes_arr.creating_shape_array_square(10) # creating the square of side length 10
+	particle_list = shapes_arr.get_shape_array() # getting the array of particles (list form)
+
+	particle_mover = Particle_Movement(particle_list[1], particle_list[0])
+	particle_mover.set_flux(True)
+	for i in range(21, 31):
+		particle_mover.set_particles(particle_list[i], particle_list[i-1])
+		particle_mover.calc_positions()
+		particle_list[i] = particle_mover.get_particle()
+
+	for i in range(21, 31): # iterating over the remaining particles in the list (those on the right side of the square)
+		if(particle_list[i].get_points()[0] != (particle_list[i-1].get_points()[0]-5)):
+			print("Test "+ str(i-1) + " failed\n")
+			print(particle_list[i].get_points()[0], particle_list[i-1].get_points()[0])
+			print("\n")
+
+		else:
+			print("Test "+ str(i-1) +" passed")
 			print(particle_list[i].get_points()[0], particle_list[i-1].get_points()[0])
 			print("\n")
 
 testing_horizontal_displacement_static()
 testing_horizontal_displacement_list()
 testing_horizontal_displacement_realistic()
+
+# testing_square_creation()
