@@ -46,7 +46,7 @@ class Physics_Simulations():
         self.__object_array = object_array
 
         # checking if the lowest particle is at the bottom of the screen
-        if(self.__momentum < 20):
+        if(self.__momentum < 30):
             for i in range(0, len(self.__object_array)):
                 pos = tuple(self.__object_array[i].get_points())
                 self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)
