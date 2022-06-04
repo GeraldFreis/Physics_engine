@@ -51,12 +51,12 @@ class Physics_Simulations():
             for i in range(0, len(self.__object_array)):
                 pos = tuple(self.__object_array[i].get_points())
                 self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)
-            self.__momentum -= 0.5
+            self.__momentum -= 0.3
         else:
             for i in range(0, len(self.__object_array)):
                 pos = tuple(self.__object_array[i].get_points())
                 self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)
-            self.__momentum += 0.2
+            self.__momentum += 0.15
 
     def rebound_square(self, object_array:list)->None:
         if(self.__object_array[0].get_points()[1] > 350 and self.__drop_stage == 2):
