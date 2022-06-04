@@ -51,6 +51,7 @@ class Physics_Simulations():
                 pos = tuple(self.__object_array[i].get_points())
                 self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)
             self.__momentum += 2
+
         elif(self.__momentum > 0 and self.__momentum < 30):
             for i in range(0, len(self.__object_array)):
                 pos = tuple(self.__object_array[i].get_points())
