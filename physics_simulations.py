@@ -46,22 +46,17 @@ class Physics_Simulations():
         self.__object_array = object_array
 
         # checking if the lowest particle is at the bottom of the screen
-        if(self.__momentum > 0 and self.__drop_stage % 2 == 0):
-            self.__drop_stage += 2
+        if(self.__momentum > 0):
             # moving the shape downwards
             for i in range(0, len(self.__object_array)):
                 pos = tuple(self.__object_array[i].get_points())
                 self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)
-            self.__momentum -= 1**2
-
-
-        elif(self.__momentum < 18 or self.__drop_stage % 2 != 0):
-            self.__drop_stage += 1
+            self.__momentum -= 2
+        else:
             for i in range(0, len(self.__object_array)):
                 pos = tuple(self.__object_array[i].get_points())
                 self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)
-            self.__momentum += 1**2
-            
+            self.__momentum += 2
 
     def rebound_square(self, object_array:list)->None:
         if(self.__object_array[0].get_points()[1] > 350 and self.__drop_stage == 2):
