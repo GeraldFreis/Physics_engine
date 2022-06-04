@@ -55,7 +55,9 @@ class Physics_Simulations():
                 self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)
         elif(self.__drop_stage % 2 == 0):
             self.__drop_stage += 1
-            self.__momentum = self.__momentum * 3 /4
+            self.__momentum = self.__momentum * 3 / 4
+            self.__top_offset += 20
+
         else:
 
             if(self.__object_array[0].get_points()[1] > (350-self.__top_offset) and self.__drop_stage % 2 != 0):
@@ -66,7 +68,6 @@ class Physics_Simulations():
             else:
                 self.__drop_stage += 1
                 self.__momentum = self.__momentum * 3 / 4
-                self.__top_offset += 20
 
         
 
