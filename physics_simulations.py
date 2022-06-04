@@ -24,22 +24,22 @@ class Physics_Simulations():
     __drop_momentum_eq = None 
     __drop_stage = None
     __momentum = None
+    __top_offset = None
 
     def __init__(self):
         self.__object_array = list()
         self.__window = None
         self.__simulation_type = None
         self.__drop_stage = 0
-        self.__drop_momentum_eq = None
+        self.__drop_momentum_eq = "(-3x**4) - (1/9)(x**3) + 9(x**2) - x - 4"
         self.__momentum = 4
+        self.__top_offset = 0
 
     
     def set_attrs(self, window, simulation_type: str, object_array: list)->None:
         self.__object_array = object_array
         self.__window = window
         self.__simulation_type = simulation_type
-        self.__drop_stage = 0
-        self.__drop_momentum_eq = "(-3x**4) - (1/9)(x**3) + 9(x**2) - x - 4"
 
     # method for handling the dropping of a square (inclusive of horizontal displacement)
     def drop_square(self, object_array: list)->None:
@@ -58,7 +58,7 @@ class Physics_Simulations():
             self.__momentum = self.__momentum * 3 /4
         else:
 
-            if(self.__object_array[0].get_points()[1] > 350 and self.__drop_stage % 2 != 0):
+            if(self.__object_array[0].get_points()[1] > (350-self.__top_offset) and self.__drop_stage % 2 != 0):
                 x = 0
                 for i in range(0, len(self.__object_array)):
                     pos = tuple(self.__object_array[i].get_points())
@@ -66,6 +66,7 @@ class Physics_Simulations():
             else:
                 self.__drop_stage += 1
                 self.__momentum = self.__momentum * 3 / 4
+                self.__top_offset += 20
 
         
 
