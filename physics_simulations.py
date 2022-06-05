@@ -61,7 +61,7 @@ class Physics_Simulations():
                     self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)    
             else:
                 self.__drop_stage += 1
-                self.__momentum = 1
+                self.__momentum = 0.5
 
 
         elif(self.__drop_stage == 2):
