@@ -32,7 +32,7 @@ class Physics_Simulations():
         self.__simulation_type = None
         self.__drop_stage = 0
         self.__drop_momentum_eq = "(-3x**4) - (1/9)(x**3) + 9(x**2) - x - 4"
-        self.__momentum = 4
+        self.__momentum = 0
 
     
     def set_attrs(self, window, simulation_type: str, object_array: list)->None:
@@ -50,7 +50,7 @@ class Physics_Simulations():
                 for i in range(0, len(self.__object_array)):
                     pos = tuple(self.__object_array[i].get_points())
                     self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)    
-                self.__momentum += 1.5 / 10
+                self.__momentum += 1.5 / 200
             else:
                 self.__drop_stage += 1
                 self.__momentum = -1.5
