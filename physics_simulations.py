@@ -50,7 +50,7 @@ class Physics_Simulations():
                 for i in range(0, len(self.__object_array)):
                     pos = tuple(self.__object_array[i].get_points())
                     self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)    
-                self.__momentum -= 1.5 / 10
+                self.__momentum += 1.5 / 10
             else:
                 self.__drop_stage += 1
                 self.__momentum = -1.5
@@ -59,7 +59,8 @@ class Physics_Simulations():
             if(self.__object_array[0].get_points()[1] >= 390):
                 for i in range(0, len(self.__object_array)):
                     pos = tuple(self.__object_array[i].get_points())
-                    self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)    
+                    self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)   
+                self.__momentum -= 1.5 / 20 
             else:
                 self.__drop_stage += 1
                 self.__momentum = 0.5
