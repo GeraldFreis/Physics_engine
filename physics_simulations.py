@@ -32,7 +32,7 @@ class Physics_Simulations():
         self.__simulation_type = None
         self.__drop_stage = 0
         self.__drop_momentum_eq = "(-3x**4) - (1/9)(x**3) + 9(x**2) - x - 4"
-        self.__momentum = 0
+        self.__momentum = 4
 
     
     def set_attrs(self, window, simulation_type: str, object_array: list)->None:
@@ -45,18 +45,35 @@ class Physics_Simulations():
         # dropping a square from the current position
         self.__object_array = object_array
 
-        # checking if the lowest particle is at the bottom of the screen
-        if(self.__momentum < 30):
-            for i in range(0, len(self.__object_array)):
-                pos = tuple(self.__object_array[i].get_points())
-                self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)
-            self.__momentum += 2
+        if(self.__drop_stage == 0): # if we are in the first stage of dropping the object
+            if(self.__object_array[0].get_points()[1] <= 450):
+                for i in range(0, len(self.__object_array)):
+                    pos = tuple(self.__object_array[i].get_points())
+                    self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)    
+            else:
+                self.__drop_stage += 1
+                self.__momentum = -3
 
-        elif(self.__momentum > 0 and self.__momentum < 30):
-            for i in range(0, len(self.__object_array)):
-                pos = tuple(self.__object_array[i].get_points())
-                self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)
-            self.__momentum -= 2
+        elif(self.__drop_stage == 1):    
+            if(self.__object_array[0].get_points()[1] >= 350):
+                for i in range(0, len(self.__object_array)):
+                    pos = tuple(self.__object_array[i].get_points())
+                    self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)    
+            else:
+                self.__drop_stage += 1
+                self.__momentum = 2
+
+
+        elif(self.__drop_stage == 2):
+            if(self.__object_array[0].get_points()[1] <= 450):
+                for i in range(0, len(self.__object_array)):
+                    pos = tuple(self.__object_array[i].get_points())
+                    self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)    
+            else:
+                self.__drop_stage += 1
+
+        else:
+            pass;
 
     def rebound_square(self, object_array:list)->None:
         if(self.__object_array[0].get_points()[1] > 350 and self.__drop_stage == 2):
