@@ -52,7 +52,7 @@ class Physics_Simulations():
                     self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)    
             else:
                 self.__drop_stage += 1
-                self.__momentum = -3
+                self.__momentum = -1.5
 
         elif(self.__drop_stage == 1):    
             if(self.__object_array[0].get_points()[1] >= 390):
@@ -61,7 +61,7 @@ class Physics_Simulations():
                     self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)    
             else:
                 self.__drop_stage += 1
-                self.__momentum = 2
+                self.__momentum = 1
 
 
         elif(self.__drop_stage == 2):
