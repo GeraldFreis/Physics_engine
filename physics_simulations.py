@@ -55,7 +55,7 @@ class Physics_Simulations():
                 self.__drop_stage += 1
                 self.__momentum = -1.5
 
-        elif(self.__drop_stage == 1):    
+        elif(self.__drop_stage == 1):    # second stage (rebound) of the drop
             if(self.__object_array[0].get_points()[1] >= 390 and self.__object_array[0].get_points()[1] < 460):
                 for i in range(0, len(self.__object_array)):
                     pos = tuple(self.__object_array[i].get_points())
@@ -66,7 +66,7 @@ class Physics_Simulations():
                 self.__momentum = 0
 
 
-        elif(self.__drop_stage == 2):
+        elif(self.__drop_stage == 2): # final stage of the drop
             if(self.__object_array[0].get_points()[1] <= 450):
                 for i in range(0, len(self.__object_array)):
                     pos = tuple(self.__object_array[i].get_points())
@@ -75,7 +75,7 @@ class Physics_Simulations():
             else:
                 self.__drop_stage += 1
 
-        else:
+        else: # if we have passed the drop stages
             pass;
 
     def rebound_square(self, object_array:list)->None:
