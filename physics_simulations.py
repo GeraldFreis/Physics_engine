@@ -18,13 +18,14 @@ has methods:
         - drops the square until one of the lowest particles has reached height 450
 """
 class Physics_Simulations():
-    __window = None
-    __object_array = None
-    __simulation_type = None
-    __drop_momentum_eq = None 
-    __drop_stage = None
-    __momentum = None
-    __top_offset = None
+    __slots__ = ("__window", "__object_array","__simulation_type", "__drop_stage", "__drop_momentum_eq", "__momentum", "__top_offset")
+    # __window = None
+    # __object_array = None
+    # __simulation_type = None
+    # __drop_momentum_eq = None 
+    # __drop_stage = None
+    # __momentum = None
+    # __top_offset = None
 
     def __init__(self):
         self.__object_array = list()
