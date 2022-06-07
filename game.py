@@ -38,6 +38,7 @@ class Game():
         shape = Shape()
         simulation = Physics_Simulations()
 
+        
         while(running_test is True): # while the game is running
             window.fill((0, 0, 0))  # Clear the screen.
             management.user_input()
