@@ -22,7 +22,7 @@ class Draw_shapes_2D():
             self.__object_array[obj].draw_particle(window)
 
     def creating_shape_array_square(self, sidelength:int):
-        if(len(self.__object_array) == 0):
+        # if(len(self.__object_array) == 0):
             y_pos = 250; x_pos = 250
             # [Particle_array.append(Particle(10, x_pos, y_pos)) for obj in range(0, sidelength)]
 
