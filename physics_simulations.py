@@ -54,10 +54,10 @@ class Physics_Simulations():
                 if(self.under_compression is True):
                     self.__object_array = self.compressed_object.compression_behaviour(self.__momentum, self.__index_val)
                     self.__index_val += 1
-                    for obj in self.__object_array:
-                        print(obj.get_points()[0], obj.get_points()[1])
+                    # for obj in self.__object_array:
+                    #     print(obj.get_points()[0], obj.get_points()[1])
                     
-                    print("\n\n\n")
+                    # print("\n")
                     
                     if(self.__index_val >= 7):
                         self.under_compression = False
@@ -68,6 +68,7 @@ class Physics_Simulations():
                     self.__momentum = -1.5
 
         elif(self.__drop_stage == 1):    # second stage (rebound) of the drop
+            print("Here")
             if(self.under_expansion is True):
                 self.compressed_object.set_object_array(self.__object_array)
                 self.__object_array = self.compressed_object.compression_behaviour(self.__momentum, self.__index_val)
