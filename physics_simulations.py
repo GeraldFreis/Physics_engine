@@ -57,7 +57,7 @@ class Physics_Simulations():
                     for obj in self.__object_array:
                         print(obj.get_points()[0], obj.get_points()[1])
                     
-                    print("\n")
+                    print("\n\n\n")
                     
                     if(self.__index_val >= 7):
                         self.under_compression = False
