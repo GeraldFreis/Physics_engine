@@ -44,25 +44,26 @@ class Physics_Simulations():
         self.__object_array = object_array
 
         if(self.__drop_stage == 0): # if we are in the first stage of dropping the object
-            if(self.__object_array[0].get_points()[1] <= 450):
-                for i in range(0, len(self.__object_array)):
-                    pos = tuple(self.__object_array[i].get_points())
-                    self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)    
-                self.__momentum += 5 / 200
-            else:
-                self.compressed_object.set_object_array(self.__object_array)
-                if(self.under_compression is True):
-                    self.__object_array = self.compressed_object.compression_behaviour(self.__momentum, self.__index_val)
-                    self.__index_val += 1
+            self.compressed_object.set_object_array(self.__object_array)
+            if(self.under_compression is True):
+                self.__object_array = self.compressed_object.compression_behaviour(self.__momentum, self.__index_val)
+                self.__index_val += 1
 
-                    
-                    if(self.__index_val >= 7):
-                        self.under_compression = False
-                        self.under_expansion = True
-                        self.__index_val = 0
+                
+                if(self.__index_val >= 7):
+                    self.under_compression = False
+                    self.under_expansion = True
+                    self.__index_val = 0
+            else:
+                if(self.__object_array[0].get_points()[1] <= 450):
+                    for i in range(0, len(self.__object_array)):
+                        pos = tuple(self.__object_array[i].get_points())
+                        self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)    
+                    self.__momentum += 5 / 200
                 else:
-                    self.__drop_stage += 1
-                    self.__momentum = -1.5
+
+                        self.__drop_stage += 1
+                        self.__momentum = -1.5
 
         elif(self.__drop_stage == 1):    # second stage (rebound) of the drop
             # print("Here")
