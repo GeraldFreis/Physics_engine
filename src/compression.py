@@ -35,7 +35,7 @@ class Compression():
         for obj in self.__object_array[10-i:20+i]: # problem (for every iteration we move left and down)
             obj.move_particle(obj.get_points()[0], obj.get_points()[1]+momentum)
 
-        for obj in self.__object_array[20+i:29-i+1]: # problem (for every iteration we move left and down)
+        for obj in self.__object_array[20+i+1:29-i+1]: # problem (for every iteration we move left and down)
             obj.move_particle(obj.get_points()[0]-6, obj.get_points()[1]+momentum)
 
         return self.__object_array
