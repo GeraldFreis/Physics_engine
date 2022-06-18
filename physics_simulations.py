@@ -49,9 +49,10 @@ class Physics_Simulations():
                     pos = tuple(self.__object_array[i].get_points())
                     self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)    
                 self.__momentum += 5 / 200
-            else:
+            else: # if we have reached the end of the drop
                 self.compressed_object.set_object_array(self.__object_array)
-                if(self.under_compression is True):
+
+                if(self.under_compression is True): # if we are compressing the shape
                     self.__object_array = self.compressed_object.compression_behaviour(self.__momentum, self.__index_val)
                     self.__index_val += 1
 
@@ -66,7 +67,7 @@ class Physics_Simulations():
                     print(len(self.__object_array))
 
         elif(self.__drop_stage == 1):    # second stage (rebound) of the drop
-            if(self.under_expansion is True): 
+            if(self.under_expansion is True):  # if we are expanding the shape
                 self.compressed_object.set_object_array(self.__object_array)
                 # moving the sides of the shape back outwards (simulating the expansion of a soft body)
                 self.__object_array = self.compressed_object.expansion_behaviour(self.__momentum, self.__index_val)
