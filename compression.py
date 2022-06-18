@@ -28,13 +28,13 @@ class Compression():
     
     # function to expand the shape after compression
     def expansion_behaviour(self, momentum: int, i: int):
-        for obj in self.__object_array[i:9-i]: # problem (for every iteration we move left and down)
+        for obj in self.__object_array[i+1:9-i]: # problem (for every iteration we move left and down)
             obj.move_particle(obj.get_points()[0]+7, obj.get_points()[1]+momentum)
         
         for obj in self.__object_array[10-i:20+i]: # problem (for every iteration we move left and down)
             obj.move_particle(obj.get_points()[0], obj.get_points()[1]+momentum)
 
-        for obj in self.__object_array[20+i:29-i+1]: # problem (for every iteration we move left and down)
+        for obj in self.__object_array[20+i+1:29-i+1]: # problem (for every iteration we move left and down)
             obj.move_particle(obj.get_points()[0]-7, obj.get_points()[1]+momentum)
         return self.__object_array
     
