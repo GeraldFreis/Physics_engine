@@ -4,5 +4,5 @@ testall: tests # running the game and then pushing changes (if any) to git
 	git push
 
 # running the game
-tests: main.py game.py draw_shapes.py shapes.py game_manager.py particle.py physics_simulations.py
-	/opt/homebrew/bin/python3 main.py
+tests: src/main.py src/game.py src/draw_shapes.py src/shapes.py src/game_manager.py src/particle.py src/physics_simulations.py
+	/opt/homebrew/bin/python3 src/main.py
