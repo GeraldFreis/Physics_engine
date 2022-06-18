@@ -53,6 +53,7 @@ class Physics_Simulations():
                 if(self.under_compression is True):
                     self.__object_array = self.compressed_object.compression_behaviour(self.__momentum, self.__index_val)
                     self.__index_val += 1
+                    
                     if(self.__index_val > 7):
                         self.under_compression = False
                 else:
