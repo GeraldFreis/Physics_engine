@@ -25,6 +25,7 @@ class Game():
     
     """Function that creates the screen """
     def mainscreen(self):
+        # vars
         management = Game_manager(True)
         py.display.init()
         window = py.display.set_mode((self.__window_size))
@@ -37,7 +38,8 @@ class Game():
         shape = Shape()
         simulation = Physics_Simulations()
 
-        while(running_test is True):
+        
+        while(running_test is True): # while the game is running
             window.fill((0, 0, 0))  # Clear the screen.
             management.user_input()
             running_test = management.get_run_test()

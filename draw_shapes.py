@@ -22,28 +22,29 @@ class Draw_shapes_2D():
             self.__object_array[obj].draw_particle(window)
 
     def creating_shape_array_square(self, sidelength:int):
-        y_pos = 250; x_pos = 250
-        # [Particle_array.append(Particle(10, x_pos, y_pos)) for obj in range(0, sidelength)]
+        if(len(self.__object_array) == 0):
+            y_pos = 250; x_pos = 250
+            # [Particle_array.append(Particle(10, x_pos, y_pos)) for obj in range(0, sidelength)]
 
-        # Particle 0 -> side length-1 is in range (250, 350) -> (250, 350-(17 * sidelength))
-        for obj in range(0, sidelength):
-            self.__object_array.append(Particle(10, x_pos, y_pos))
-            y_pos -= 17
+            # Particle 0 -> side length-1 is in range (250, 350) -> (250, 350-(17 * sidelength))
+            for obj in range(0, sidelength):
+                self.__object_array.append(Particle(10, x_pos, y_pos))
+                y_pos -= 17
 
-        # Particle sidelength to 2 * sidelength is in range(250, 350 - (17*sidelength)) -> (250 + (17 * sidelength), 350 - (17*sidelength))
-        for obj in range(0, sidelength):
-            self.__object_array.append(Particle(10, x_pos, y_pos))
-            x_pos += 17
-        
-        # Particle sidelength * 2 to sidelength * 3 is in range (250+17*sidelength, 350-17*sidelength) -> (250+17*sidelength, 350)
-        for obj in range(0, sidelength):
-            self.__object_array.append(Particle(10, x_pos, y_pos))
-            y_pos += 17
+            # Particle sidelength to 2 * sidelength is in range(250, 350 - (17*sidelength)) -> (250 + (17 * sidelength), 350 - (17*sidelength))
+            for obj in range(0, sidelength):
+                self.__object_array.append(Particle(10, x_pos, y_pos))
+                x_pos += 17
+            
+            # Particle sidelength * 2 to sidelength * 3 is in range (250+17*sidelength, 350-17*sidelength) -> (250+17*sidelength, 350)
+            for obj in range(0, sidelength):
+                self.__object_array.append(Particle(10, x_pos, y_pos))
+                y_pos += 17
 
-        # Particle sidelength * 3 to sidelength * 4 is in range (250+15*sidelength, 350) -> (250, 350)
-        for obj in range(0, sidelength):
-            self.__object_array.append(Particle(10, x_pos, y_pos))
-            x_pos -= 17
+            # Particle sidelength * 3 to sidelength * 4 is in range (250+15*sidelength, 350) -> (250, 350)
+            for obj in range(0, sidelength):
+                self.__object_array.append(Particle(10, x_pos, y_pos))
+                x_pos -= 17
         
         
     def draw_square_if_initialised(self, window):

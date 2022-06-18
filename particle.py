@@ -33,3 +33,9 @@ class Particle():
     def draw_particle(self, window): # draws the Particle to the window
         py.draw.circle(window, (255, 0, 0), [self.__x, self.__y], self.__radius, 0)
         return
+
+    def set_momentum(self, speed: int, direction: str)->None:
+        self.__momentum = (speed, direction)
+
+    def get_momentum(self)->tuple:
+        return self.__momentum
