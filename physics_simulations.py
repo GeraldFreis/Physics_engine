@@ -63,6 +63,7 @@ class Physics_Simulations():
                 else:
                     self.__drop_stage += 1
                     self.__momentum = -1.5
+                    print(len(self.__object_array))
 
         elif(self.__drop_stage == 1):    # second stage (rebound) of the drop
             # print("Here")
@@ -83,6 +84,8 @@ class Physics_Simulations():
                 else:
                     self.__drop_stage += 1
                     self.__momentum = 0
+                    print(len(self.__object_array))
+
 
 
         elif(self.__drop_stage == 2): # final stage of the drop
@@ -93,10 +96,10 @@ class Physics_Simulations():
                 self.__momentum += 1.5 / 200
             else:
                 self.__drop_stage += 1
+                print(len(self.__object_array))
+
 
         else: # if we have passed the drop stages
-            for obj in self.__object_array:
-                print(obj.get_points()[0], obj.get_points()[1])
             pass;
 
     def set_stage(self, stage: int)->None:
