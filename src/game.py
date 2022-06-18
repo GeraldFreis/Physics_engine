@@ -31,7 +31,9 @@ class Game():
         window = py.display.set_mode((self.__window_size))
         py.display.set_caption("Physics Engine - by Gerald Freislich")
         pressed_keys = py.key.get_pressed()
-        
+
+        management.user_input()
+
         running_test = True
         dropped = False
 
