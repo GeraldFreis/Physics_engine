@@ -19,7 +19,7 @@ has methods:
 """
 class Physics_Simulations():
     __slots__ = ("__window", "__object_array","__simulation_type", "__drop_stage", "__drop_momentum_eq", "__momentum", "__top_offset",
-    "__index_val", "under_compression", "compressed_object")
+    "__index_val", "under_compression", "compressed_object", "under_expansion")
 
     def __init__(self):
         self.__object_array = list()
@@ -31,6 +31,7 @@ class Physics_Simulations():
         self.__index_val = 1; # value that will hold the index of the current element which is increased every iteration
         self.under_compression = True
         self.compressed_object = Compression()
+        self.under_expansion = False
     
     def set_attrs(self, window, simulation_type: str, object_array: list)->None:
         self.__object_array = object_array
@@ -56,19 +57,30 @@ class Physics_Simulations():
                     
                     if(self.__index_val > 7):
                         self.under_compression = False
+                        self.under_expansion = True
+                        self.__index_val = 0
                 else:
                     self.__drop_stage += 1
                     self.__momentum = -1.5
 
         elif(self.__drop_stage == 1):    # second stage (rebound) of the drop
-            if(self.__object_array[0].get_points()[1] >= 390 and self.__object_array[0].get_points()[1] < 460):
-                for i in range(0, len(self.__object_array)):
-                    pos = tuple(self.__object_array[i].get_points())
-                    self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)   
-                self.__momentum += 5 / 200
+            if(self.under_expansion is True):
+                self.compressed_object.set_object_array(self.__object_array)
+                self.__object_array = self.compressed_object.compression_behaviour(self.__momentum, self.__index_val)
+                self.__index_val += 1
+                    
+                if(self.__index_val > 7):
+                    self.under_compression = False
+                    self.under_expansion = False
             else:
-                self.__drop_stage += 1
-                self.__momentum = 0
+                if(self.__object_array[0].get_points()[1] >= 390 and self.__object_array[0].get_points()[1] < 460):
+                    for i in range(0, len(self.__object_array)):
+                        pos = tuple(self.__object_array[i].get_points())
+                        self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)   
+                    self.__momentum += 5 / 200
+                else:
+                    self.__drop_stage += 1
+                    self.__momentum = 0
 
 
         elif(self.__drop_stage == 2): # final stage of the drop
