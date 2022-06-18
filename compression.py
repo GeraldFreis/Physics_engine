@@ -14,6 +14,7 @@ class Compression():
     """
     Complexity with this behaviour is that we must incrementally move all components / particles outward
     """
+    # function to compress the square
     def compression_behaviour(self, momentum: int, i: int):
         for obj in self.__object_array[i:9-i+1]: # problem (for every iteration we move left and down)
             obj.move_particle(obj.get_points()[0]-7, obj.get_points()[1]+momentum)
@@ -25,6 +26,7 @@ class Compression():
             obj.move_particle(obj.get_points()[0]+7, obj.get_points()[1]+momentum)
         return self.__object_array
     
+    # function to expand the shape after compression
     def expansion_behaviour(self, momentum: int, i: int):
         for obj in self.__object_array[i:9-i+1]: # problem (for every iteration we move left and down)
             obj.move_particle(obj.get_points()[0]+7, obj.get_points()[1]+momentum)
