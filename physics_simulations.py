@@ -59,10 +59,10 @@ class Physics_Simulations():
                     
                     # # print("\n")
                     
-                    # if(self.__index_val >= 7):
-                    #     self.under_compression = False
-                    #     self.under_expansion = True
-                    #     self.__index_val = 0
+                    if(self.__index_val >= 7):
+                        self.under_compression = False
+                        self.under_expansion = True
+                        self.__index_val = 0
                 else:
                     self.__drop_stage += 1
                     self.__momentum = -1.5
