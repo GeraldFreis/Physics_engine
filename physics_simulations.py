@@ -95,6 +95,8 @@ class Physics_Simulations():
                 self.__drop_stage += 1
 
         else: # if we have passed the drop stages
+            for obj in self.__object_array:
+                print(obj.get_points()[0], obj.get_points()[1])
             pass;
 
     def set_stage(self, stage: int)->None:
