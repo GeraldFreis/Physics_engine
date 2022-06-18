@@ -71,7 +71,7 @@ class Physics_Simulations():
                     
                 if(self.__index_val > 7):
                     self.under_compression = False
-                    self.under_expansion = False
+                    self.under_expansion = True
             else:
                 if(self.__object_array[0].get_points()[1] >= 390 and self.__object_array[0].get_points()[1] < 460):
                     for i in range(0, len(self.__object_array)):
