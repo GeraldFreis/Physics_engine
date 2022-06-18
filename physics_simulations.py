@@ -100,6 +100,7 @@ class Physics_Simulations():
 
 
         else: # if we have passed the drop stages
+            print(len(self.__object_array))
             pass;
 
     def set_stage(self, stage: int)->None:
