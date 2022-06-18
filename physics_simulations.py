@@ -28,7 +28,7 @@ class Physics_Simulations():
         self.__drop_stage = 0
         self.__drop_momentum_eq = "(-3x**4) - (1/9)(x**3) + 9(x**2) - x - 4"
         self.__momentum = 0
-        self.__index_val = 0; # value that will hold the index of the current element which is increased every iteration
+        self.__index_val = 1; # value that will hold the index of the current element which is increased every iteration
         self.under_compression = True
         self.compressed_object = Compression()
     
