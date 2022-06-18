@@ -45,7 +45,7 @@ class Physics_Simulations():
 
         if(self.__drop_stage == 0): # if we are in the first stage of dropping the object
             if(self.__object_array[0].get_points()[1] <= 450):
-                for i in range(0, len(self.__object_array)):
+                for i in range(0, 40):
                     pos = tuple(self.__object_array[i].get_points())
                     self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)    
                 self.__momentum += 5 / 200
@@ -77,7 +77,7 @@ class Physics_Simulations():
                     self.under_expansion = False
             else:
                 if(self.__object_array[0].get_points()[1] >= 390 and self.__object_array[0].get_points()[1] < 460):
-                    for i in range(0, len(self.__object_array)):
+                    for i in range(0, 40):
                         pos = tuple(self.__object_array[i].get_points())
                         self.__object_array[i].move_particle(pos[0], pos[1]+self.__momentum)   
                     self.__momentum += 5 / 200
@@ -100,7 +100,10 @@ class Physics_Simulations():
 
 
         else: # if we have passed the drop stages
-            print(len(self.__object_array))
+            # print(len(self.__object_array))
+            # if(len(self.__object_array) > 41):
+            #     for i in range (41, len(self.__object_array)):
+            #         self.__object_array.pop(i)
             pass;
 
     def set_stage(self, stage: int)->None:
