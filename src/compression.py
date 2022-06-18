@@ -1,6 +1,6 @@
 """
 Compression class:
-* This class will handle the falling and compression behaviours of the square
+* This class will handle the falling, expansion and compression behaviours of the square
 """
 class Compression():
     __slots__ = ("__object_array", "__compressed_particles")
