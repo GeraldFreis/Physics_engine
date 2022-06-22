@@ -24,7 +24,6 @@ class Draw_shapes_2D():
     def creating_shape_array_square(self, sidelength:int):
         if(len(self.__object_array) == 0):
             y_pos = 250; x_pos = 250
-            # [Particle_array.append(Particle(10, x_pos, y_pos)) for obj in range(0, sidelength)]
 
             # Particle 0 -> side length-1 is in range (250, 350) -> (250, 350-(17 * sidelength))
             for obj in range(0, sidelength):

@@ -12,12 +12,14 @@ Class to manage the game (specifically inputs):
         get run_tests, get drop_tests # returns the private variables in each of the functions
 """
 class Game_manager:
-    __run_test = None
-    __drop_sim = None
+    __slots__ = ("__run_test", "__drop_sim", "__mouse_x", "__mouse_y", "__mouse_moved")
+
 
     def __init__(self):
         self.__run_test = False
         self.__drop_sim = True
+        self.__mouse_x = 0; self.__mouse_y = 0;
+        self.__mouse_moved = False;
 
     def __init__(self, run_test: bool):
         self.__run_test = run_test
@@ -29,9 +31,14 @@ class Game_manager:
         for event in py.event.get():  # creating a finish function to close the window
             if event.type == py.QUIT:
                 self.__run_test = False
-                break
+                break;
+            if event.type = py.mouse.get_pressed():
+                self.__mouse_x, self.__mouse_y = py.mouse.get_pos();
+                self.__mouse_moved = True;
+                break;
         if(pressed_keys[py.K_1]):
             self.__drop_sim = False
+
             
     
     # returns the run test _value (if the user has decided to exit the game) and the 
@@ -40,3 +47,7 @@ class Game_manager:
     
     def get_drop_test(self) -> bool:
         return self.__drop_sim
+
+    def get_mouse_move(self)->bool: return self.__mouse_moved;
+
+    def get_mouse_pos(self)->tuple: return (self.__mouse_x, self.__mouse_y);

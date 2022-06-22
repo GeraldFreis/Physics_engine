@@ -36,6 +36,7 @@ class Game():
 
         running_test = True
         dropped = False
+        mouse_moved = False
 
         shape = Shape()
         simulation = Physics_Simulations()
@@ -44,6 +45,8 @@ class Game():
         while(running_test is True): # while the game is running
             window.fill((0, 0, 0))  # Clear the screen.
             management.user_input()
+            mouse_moved = management.get_mouse_move();
+            print(mouse_moved)
             running_test = management.get_run_test()
             shape.set_drop(management.get_drop_test())
 
