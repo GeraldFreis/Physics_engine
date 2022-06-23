@@ -37,6 +37,7 @@ class Game():
         running_test = True
         dropped = False
         mouse_moved = False
+        re_run_test = False
 
         shape = Shape()
         simulation = Physics_Simulations()
@@ -47,8 +48,12 @@ class Game():
             management.user_input()
             mouse_moved = management.get_mouse_move()
             running_test = management.get_run_test()
+            re_run_test = management.get_re_run()
             shape.set_drop(management.get_drop_test())
 
+            if(re_run_test is True and shape.get_drop() is True):
+                re_run_test = False
+                shape.set_drop(False)
 
             if(shape.get_drop() is False):
                 window.fill((0, 0, 0))
@@ -61,6 +66,10 @@ class Game():
                 shape.make_shape_array_square(mouse_moved, management.get_mouse_pos())
                 shape.draw_shape(window)
             
+            # if(re_run_test is True and shape.get_drop() is True):
+            #     re_run_test = False
+            #     shape.set_drop(False)
+
             py.display.update()
     
     def __del__(self):

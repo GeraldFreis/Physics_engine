@@ -12,19 +12,22 @@ Class to manage the game (specifically inputs):
         get run_tests, get drop_tests # returns the private variables in each of the functions
 """
 class Game_manager:
-    __slots__ = ("__run_test", "__drop_sim", "__mouse_x", "__mouse_y", "__mouse_moved")
+    __slots__ = ("__run_test", "__drop_sim", "__mouse_x", "__mouse_y", "__mouse_moved", "__re_run")
 
     def __init__(self):
         self.__run_test = False
         self.__drop_sim = True
         self.__mouse_x = 0; self.__mouse_y = 0
         self.__mouse_moved = False
+        self.__re_run = False
 
     def __init__(self, run_test: bool):
         self.__run_test = run_test
         self.__drop_sim = True
         self.__mouse_x = 0; self.__mouse_y = 0
         self.__mouse_moved = False
+        self.__re_run = False
+
 
     """Getting the user input"""
     def user_input(self):
@@ -43,6 +46,9 @@ class Game_manager:
 
         if(pressed_keys[py.K_1]):
             self.__drop_sim = False
+        
+        if(pressed_keys[py.K_2]):
+            self.__re_run = True
 
             
     
@@ -58,3 +64,5 @@ class Game_manager:
 
     def get_mouse_pos(self)->tuple: 
         return (self.__mouse_x, self.__mouse_y)
+    
+    def get_re_run(self)->bool: return self.__re_run
