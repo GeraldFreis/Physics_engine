@@ -52,8 +52,10 @@ class Game():
             shape.set_drop(management.get_drop_test())
 
             if(re_run_test is True):
-                re_run_test = False
                 shape.set_drop(True)
+                management.set_drop_test(False)
+                re_run_test = False
+                management.set_re_run(False)
 
             if(shape.get_drop() is False):
                 window.fill((0, 0, 0))

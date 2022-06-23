@@ -59,6 +59,8 @@ class Game_manager:
     def get_drop_test(self) -> bool:
         return self.__drop_sim
 
+    def set_drop_test(self, droptest: bool) -> None: self.__drop_sim = droptest
+
     def get_mouse_move(self)->bool: 
         return self.__mouse_moved
 
@@ -66,3 +68,7 @@ class Game_manager:
         return (self.__mouse_x, self.__mouse_y)
     
     def get_re_run(self)->bool: return self.__re_run
+
+    def set_re_run(self, rerun: bool)->None: self.__re_run = rerun
+
+
