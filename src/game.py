@@ -55,10 +55,8 @@ class Game():
                 management.set_drop_test(True)
                 management.set_re_run(False)
                 simulation.set_stage(0)
-                print("Here")
 
             if(shape.get_drop() is False):
-                print("Fere")
 
                 window.fill((0, 0, 0))
                 simulation.drop_square(shape.get_shape_array())
