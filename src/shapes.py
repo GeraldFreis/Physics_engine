@@ -40,10 +40,10 @@ class Shape():
 
         else:
             self.__shape_array =  self.drawing_shapes.get_shape_array()
-            for obj in self.__shape_array:
-                diff_x = mouse_positions[0] - (self.__shape_array[14].get_points()[0]-obj.get_points()[0])
-                diff_y = mouse_positions[1] - (self.__shape_array[14].get_points()[1]-obj.get_points()[1])
-                obj.move_particle(diff_x, diff_y)
+            diff_x = mouse_positions[0] - (self.__shape_array[14].get_points()[0])
+            diff_y = mouse_positions[1] - (self.__shape_array[14].get_points()[1])
+            for obj in self.__shape_array:                
+                obj.move_particle(obj.get_points()[0]+diff_x, obj.get_points()[1]+diff_y)
             self.__drop_begun = True
     
     def get_drop(self)->bool: return self.__drop_begun
