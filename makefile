@@ -1,4 +1,6 @@
-testall: tests # running the game and then pushing changes (if any) to git
+testall: tests gitstuff# running the game and then pushing changes (if any) to git
+
+gitstuff:
 	git add -A
 	git commit -a -m "safe"
 	git push

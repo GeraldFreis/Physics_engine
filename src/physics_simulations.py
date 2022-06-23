@@ -89,7 +89,7 @@ class Physics_Simulations():
                 else:
                     self.__drop_stage += 1
                     self.__momentum = 0
-                    print(len(self.__object_array))
+                    # print(len(self.__object_array))
 
 
 

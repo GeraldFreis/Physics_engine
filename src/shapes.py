@@ -5,9 +5,7 @@ from draw_shapes import Draw_shapes_2D
 """This class will call the drawing shape functions from the draw shapes utility class"""
 class Shape():
     # private data memembers
-    __shape_type = None
-    __drop_begun = None
-    __shape_array = None
+    __slots__ = ("__shape_type", "__drop_begun", "__shape_array", "drawing_shapes")
 
     def __init__(self): # default constructor
         self.__shape_type = "circle" 
