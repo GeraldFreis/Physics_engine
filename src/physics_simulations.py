@@ -106,6 +106,8 @@ class Physics_Simulations():
 
 
         else: # if we have passed the drop stages
+            self.under_compression = True
+            self.under_expansion = False
             pass;
 
     def set_stage(self, stage: int)->None:
