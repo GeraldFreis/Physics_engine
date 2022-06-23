@@ -53,7 +53,7 @@ class Game():
 
             if(re_run_test is True and shape.get_drop() is True):
                 re_run_test = False
-                shape.set_drop(False)
+                shape.set_drop(True)
 
             if(shape.get_drop() is False):
                 window.fill((0, 0, 0))
@@ -65,10 +65,7 @@ class Game():
             else:
                 shape.make_shape_array_square(mouse_moved, management.get_mouse_pos())
                 shape.draw_shape(window)
-            
-            # if(re_run_test is True and shape.get_drop() is True):
-            #     re_run_test = False
-            #     shape.set_drop(False)
+
 
             py.display.update()
     
