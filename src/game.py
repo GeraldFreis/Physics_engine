@@ -51,7 +51,7 @@ class Game():
             re_run_test = management.get_re_run()
             shape.set_drop(management.get_drop_test())
 
-            if(re_run_test is True and shape.get_drop() is True):
+            if(re_run_test is True):
                 re_run_test = False
                 shape.set_drop(True)
 
