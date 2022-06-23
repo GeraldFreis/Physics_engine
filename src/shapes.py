@@ -37,12 +37,17 @@ class Shape():
             self.__drop_begun = True
 
         else:
-            self.__shape_array =  self.drawing_shapes.get_shape_array()
-            diff_x = mouse_positions[0] - (self.__shape_array[14].get_points()[0])
-            diff_y = mouse_positions[1] - (self.__shape_array[14].get_points()[1])
-            for obj in self.__shape_array:                
-                obj.move_particle(obj.get_points()[0]+diff_x, obj.get_points()[1]+diff_y)
-            self.__drop_begun = True
+            if((mouse_positions[0] > 100 and mouse_positions[0] < 550) and 
+                (mouse_positions[1] > 25 and mouse_positions[1] < 290)):
+
+                self.__shape_array =  self.drawing_shapes.get_shape_array()
+                diff_x = mouse_positions[0] - (self.__shape_array[14].get_points()[0])
+                diff_y = mouse_positions[1] - (self.__shape_array[14].get_points()[1])
+
+                for obj in self.__shape_array:                
+                    obj.move_particle(obj.get_points()[0]+diff_x, obj.get_points()[1]+diff_y)
+
+                self.__drop_begun = True
     
     def get_drop(self)->bool: return self.__drop_begun
 
