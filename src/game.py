@@ -53,7 +53,7 @@ class Game():
 
             if(re_run_test is True):
                 shape.set_drop(True)
-                management.set_drop_test(False)
+                management.set_drop_test(True)
                 management.set_re_run(False)
 
             if(shape.get_drop() is False):
