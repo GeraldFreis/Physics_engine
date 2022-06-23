@@ -45,8 +45,7 @@ class Game():
         while(running_test is True): # while the game is running
             window.fill((0, 0, 0))  # Clear the screen.
             management.user_input()
-            mouse_moved = management.get_mouse_move();
-            print(mouse_moved)
+            mouse_moved = management.get_mouse_move()
             running_test = management.get_run_test()
             shape.set_drop(management.get_drop_test())
 
@@ -57,8 +56,9 @@ class Game():
                 shape.set_shape_array(simulation.get_shape_array())
                 shape.set_drop(True)
                 shape.draw_shape(window)
+
             else:
-                shape.make_shape_array_square()
+                shape.make_shape_array_square(mouse_moved, management.get_mouse_pos())
                 shape.draw_shape(window)
             
             py.display.update()

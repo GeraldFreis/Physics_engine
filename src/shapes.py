@@ -31,10 +31,20 @@ class Shape():
         return
     
     # making a shape array if it needs a square
-    def make_shape_array_square(self):
+    def make_shape_array_square(self, mouse_movement: bool, mouse_positions: tuple):
         self.drawing_shapes.creating_shape_array_square(10)
-        self.__shape_array = self.drawing_shapes.get_shape_array()
-        self.__drop_begun = True
+
+        if(mouse_movement is False):
+            self.__shape_array = self.drawing_shapes.get_shape_array()
+            self.__drop_begun = True
+
+        else:
+            self.__shape_array =  self.drawing_shapes.get_shape_array()
+            for obj in self.__shape_array:
+                diff_x = mouse_positions[0] - (self.__shape_array[14].get_points()[0]-obj.get_points()[0])
+                diff_y = mouse_positions[1] - (self.__shape_array[14].get_points()[1]-obj.get_points()[1])
+                obj.move_particle(diff_x, diff_y)
+            self.__drop_begun = True
     
     def get_drop(self)->bool: return self.__drop_begun
 

@@ -50,7 +50,7 @@ class Draw_shapes_2D():
         try:
             for obj in range (0, len(self.__object_array)):
                 self.__object_array[obj].draw_particle(window)
-        except IndexError():
+        except IndexError and AttributeError:
             print("No vals in object array (draw_shapes.py line 55)\n")
         
 
