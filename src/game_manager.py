@@ -46,13 +46,9 @@ class Game_manager:
 
         if(pressed_keys[py.K_1]):
             self.__drop_sim = False
-            print("Here")
         
         if(pressed_keys[py.K_2]):
             self.__re_run = True
-            print("\\/")
-
-            
     
     # returns the run test _value (if the user has decided to exit the game) and the 
     def get_run_test(self) -> bool:
