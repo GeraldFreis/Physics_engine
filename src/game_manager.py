@@ -46,6 +46,7 @@ class Game_manager:
 
         if(pressed_keys[py.K_1]):
             self.__drop_sim = False
+            print("Here")
         
         if(pressed_keys[py.K_2]):
             self.__re_run = True
